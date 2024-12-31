@@ -1,20 +1,15 @@
-<div class="admin-layout flex h-screen">
-    <!-- Sidebar (20% width) -->
-    <div class="w-[16%] bg-gray-900 text-white p-6">
-        <app-admin-layout-sidebar></app-admin-layout-sidebar>
-    </div>
+<div class="flex min-h-screen">
+  <!-- Sidebar Component -->
+  <app-admin-layout-sidebar [isSidebarVisible]="isSidebarVisible"></app-admin-layout-sidebar>
 
-    <!-- Main Content Area (80% width) -->
-    <div class="flex-1 flex flex-col">
-        <!-- Header (80% width) -->
-        <app-admin-layout-header class="w-full"></app-admin-layout-header>
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col transition-all">
+    <!-- Header -->
+    <app-admin-layout-header (toggleSidebarEvent)="toggleSidebar()"></app-admin-layout-header>
 
-        <!-- Dynamic Content Area -->
-        <div class="flex-1 overflow-auto p-6 bg-gray-100">
-            <router-outlet></router-outlet>
-        </div>
-
-        <!-- Footer -->
-        <!-- <app-admin-layout-footer class="w-full bg-gray-800 text-white p-4 text-center"></app-admin-layout-footer> -->
-    </div>
+    <!-- Router Outlet (For page content) -->
+    <main [ngClass]="isSidebarVisible ? 'ml-64' : 'ml-0'" class="flex-1 p-4 transition-all">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>

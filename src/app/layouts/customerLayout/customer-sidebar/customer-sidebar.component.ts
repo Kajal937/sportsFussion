@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './customer-sidebar.component.css'
 })
 export class CustomerSidebarComponent {
+  // isSidebarVisible = false;
 
+  // // Function to toggle sidebar visibility
+  // toggleSidebar() {
+  //   this.isSidebarVisible = !this.isSidebarVisible;
+  // }
 }

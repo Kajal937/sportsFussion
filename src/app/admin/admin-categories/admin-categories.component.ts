@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Category } from '../../models/user';
+import { AdminSeller, Category } from '../../models/user';
 
 @Component({
   selector: 'app-admin-categories',
@@ -8,6 +8,7 @@ import { Category } from '../../models/user';
   styleUrls: ['./admin-categories.component.css'],
 })
 export class AdminCategoriesComponent implements OnInit {
+ 
   categories: Category[] = [];
   isEditModalOpen = false;
   isAddModalOpen = false;
@@ -103,3 +104,6 @@ export class AdminCategoriesComponent implements OnInit {
     );
   }
 }
+
+
+  

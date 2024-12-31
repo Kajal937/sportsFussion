@@ -1,0 +1,49 @@
+<div class="bg-gray-100 py-10">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Product Categories</h2>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+    <div *ngFor="let product of products.slice(0, 4)" class="block rounded-lg bg-white shadow-lg hover:shadow-2xl">
+      <a [routerLink]="['/customer-dashboard']">
+        <img class="rounded-t-lg w-full h-56 object-cover" [src]="product.image_url" alt="Product Image" />
+      </a>
+      <div class="p-6 text-gray-700">
+        <h5 class="mb-2 font-bold" style="font-size: 16px !important;">
+          {{ product.product_name }}
+        </h5>
+        <p class="mb-4 text-sm text-gray-600" style="font-size: 14px !important;">
+          {{ product.description || 'No description available' }}
+        </p>
+
+        <div class="flex justify-between items-center">
+          <button (click)="addToCart(product)" type="button"
+            class="rounded bg-[#35AD79] px-4 py-2 text-xs text-white shadow-md hover:bg-[#43d093]">
+            Add to Cart
+          </button>
+          <button (click)="viewMore()" type="button"
+            class="rounded border px-4 py-2 text-xs text-black hover:bg-[#35AD79] hover:text-white">
+            View More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Show Register Message -->
+  <div *ngIf="showRegisterMessage" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <h3 class="text-xl font-semibold mb-4">Please Register to Add to Cart</h3>
+      <p class="mb-4">You need to sign up first to add items to your cart.</p>
+      <div class="flex justify-center space-x-4">
+        <button (click)="closeRegisterMessage()" class="bg-gray-500 text-white px-6 py-2 rounded-lg">Close</button>
+        <button (click)="goToSignUp()" class="bg-[#35AD79] text-white px-6 py-2 rounded-lg hover:bg-[#43d093]">Go to
+          Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button (click)="viewMore()" class="bg-[#35AD79] text-white px-4 py-2 rounded-lg hover:bg-[#43d093]">
+      View More
+    </button>
+  </div>
+</div>

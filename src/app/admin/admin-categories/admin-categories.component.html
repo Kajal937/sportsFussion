@@ -1,35 +1,138 @@
-<!-- Admin Categories Table -->
-<div class="flex justify-center mb-6">
-  <button class="text-white bg-green-600 px-4 py-2 rounded" (click)="openAddModal()">
-    Add Category
+<!-- <div class="flex justify-end mb-6">
+  <button (click)="openAddModal()" 
+    class="categories bg-blue-600 text-white text-[18px] px-[11px] py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200">
+    <i class="fas fa-plus mr-2"></i>Add
   </button>
 </div>
 
-<div class="overflow-x-auto">
-  <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-    <thead class="bg-gray-200 text-gray-700">
+<div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+  <table class="min-w-full table-auto border-collapse">
+    <thead class="bg-gray-100 text-gray-800">
       <tr>
-        <th class="px-6 py-3 text-left">Category ID</th>
-        <th class="px-6 py-3 text-left">Name</th>
-        <th class="px-6 py-3 text-left">Description</th>
-        <th class="px-6 py-3 text-left">Created At</th>
-        <th class="px-6 py-3 text-left">Status</th>
-        <th class="px-6 py-3 text-left">Actions</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Name</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Description</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Created At</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Status</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Actions</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let category of categories" class="hover:bg-gray-50">
-        <td class="px-6 py-4">{{ category.categoryId }}</td>
-        <td class="px-6 py-4">{{ category.name }}</td>
-        <td class="px-6 py-4">{{ category.description }}</td>
-        <td class="px-6 py-4">{{ category.createdAt | date }}</td>
-        <td class="px-6 py-4">{{ category.categoryStatus }}</td>
-        <td class="px-6 py-4">
-          <button (click)="openEditModal(category)" class="bg-yellow-500 text-white px-3 py-1 rounded">
-            Edit
+    <tbody class="text-gray-700">
+      <tr *ngFor="let category of categories" class="transition-all duration-300 hover:bg-gray-50">
+        <td class="px-6 py-4 text-sm">{{ category.name }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.description }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.createdAt | date }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.categoryStatus }}</td>
+       
+         
+          <td class="px-6 py-4 flex space-x-2">
+            <button (click)="openEditModal(category)" 
+              class="flex justify-center items-center text-center bg-yellow-500 text-white text-[15px] py-[6px] px-[10px] rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition duration-200">
+              <i class="fas fa-edit mr-2"></i> Edit
+            </button>
+          
+            <button (click)="deleteCategory(category.categoryId)" 
+              class="flex justify-center items-center text-center bg-red-500 text-white text-[15px] py-[6px] px-[10px] rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200">
+              <i class="fas fa-trash mr-2"></i> Delete
+            </button>
+          </td>
+          
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="isEditModalOpen || isAddModalOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">{{ isEditModalOpen ? 'Edit Category' : 'Add Category' }}</h2>
+    <form>
+      
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+        <input
+          id="name"
+          type="text"
+          [(ngModel)]="selectedCategory.name"
+          name="name"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="selectedCategory.description"
+          name="description"
+          rows="4"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+        <select
+          id="status"
+          [(ngModel)]="selectedCategory.categoryStatus"
+          name="status"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          <option value="Pending">Pending</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button type="button" (click)="saveCategory()" 
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200">
+          Save
+        </button>
+        <button type="button" (click)="closeModals()" 
+          class="bg-gray-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-200">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+
+<!-- Admin Categories Table -->
+<div class="flex justify-end mb-6">
+  <button (click)="openAddModal()" 
+    class="categories bg-blue-600 text-white text-[18x] px-3 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200">
+    <i class="fas fa-plus mr-2"></i> Add
+  </button>
+</div>
+
+<div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+  <table class="min-w-full table-auto border-collapse">
+    <thead class="bg-gray-100 text-gray-800">
+      <tr>
+        <!-- <th class="px-6 py-3 text-left text-sm font-bold text-black">Category ID</th> -->
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Name</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Description</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Created At</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Status</th>
+        <th class="px-6 py-3 text-left text-sm font-bold text-black">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700">
+      <tr *ngFor="let category of categories" class="transition-all duration-300 hover:bg-gray-50">
+        <!-- <td class="px-6 py-4 text-sm">{{ category.categoryId }}</td> -->
+        <td class="px-6 py-4 text-sm">{{ category.name }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.description }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.createdAt | date }}</td>
+        <td class="px-6 py-4 text-sm">{{ category.categoryStatus }}</td>
+        <td class="px-6 py-4 flex space-x-2">
+          <button (click)="openEditModal(category)" 
+            class="bg-yellow-500 text-white text-[15px] py-[6px] px-[15px] rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition duration-200">
+            <i class="fas fa-edit"></i> 
+           
           </button>
-          <button (click)="deleteCategory(category.categoryId)" class="bg-red-500 text-white px-3 py-1 rounded">
-            Delete
+          <button (click)="deleteCategory(category.categoryId)" 
+            class="bg-red-500 text-white text-[15px] py-[6px] px-[15px] rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200">
+            <i class="fas fa-trash"></i> 
           </button>
         </td>
       </tr>
@@ -38,62 +141,60 @@
 </div>
 
 <!-- Modal for Add/Edit Category -->
-<div *ngIf="isEditModalOpen || isAddModalOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-  <div class="bg-white p-6 rounded-lg w-full max-w-lg">
-    <h2 class="text-lg font-semibold mb-4">{{ isEditModalOpen ? 'Edit Category' : 'Add Category' }}</h2>
-    <form>
-      <div *ngIf="isEditModalOpen" class="mb-4">
-        <label for="categoryId" class="block text-sm font-medium">Category ID</label>
-        <input
-          id="categoryId"
-          type="text"
-          [(ngModel)]="selectedCategory.categoryId"
-          name="categoryId"
-          class="border border-gray-300 rounded p-2 w-full"
-          disabled
-        />
-      </div>
+<div *ngIf="isEditModalOpen || isAddModalOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg">
+    <!-- <h2 class="text-[12px]!important font-semibold text-gray-800 mb-6 text-center">{{ isEditModalOpen ? 'Edit Category' : 'Add Category' }}</h2> -->
+   
+    <h2 class="text-[24px] font-semibold text-gray-800 mb-6 text-center" style="font-size: 10px !important;">
+      {{ isEditModalOpen ? 'Edit Category' : 'Add Category' }}
+    </h2> <form>
+     
       <div class="mb-4">
-        <label for="name" class="block text-sm font-medium">Name</label>
+        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
         <input
-          id="name"
-          type="text"
-          [(ngModel)]="selectedCategory.name"
-          name="name"
-          class="border border-gray-300 rounded p-2 w-full"
+          id="name"  type="text"[(ngModel)]="selectedCategory.name"name="name"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required  #nameInput="ngModel"
         />
+        <div *ngIf="nameInput.invalid && nameInput.touched" class="text-red-500 text-sm">
+          Name is required.
+        </div>
       </div>
+      
       <div class="mb-4">
-        <label for="description" class="block text-sm font-medium">Description</label>
-        <input
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea
           id="description"
-          type="text"
           [(ngModel)]="selectedCategory.description"
           name="description"
-          class="border border-gray-300 rounded p-2 w-full"
-        />
+          rows="4"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
       </div>
       <div class="mb-4">
-        <label for="status" class="block text-sm font-medium">Status</label>
+        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
         <select
           id="status"
           [(ngModel)]="selectedCategory.categoryStatus"
           name="status"
-          class="border border-gray-300 rounded p-2 w-full"
+          class="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           <option value="Pending">Pending</option>
           <option value="Delivered">Delivered</option>
           <option value="Cancelled">Cancelled</option>
         </select>
       </div>
-      <div class="flex justify-end space-x-2">
-        <button type="button" (click)="saveCategory()" class="bg-blue-500 text-white px-4 py-2 rounded">
+      <div class="flex justify-between mt-6">
+        <button type="button" (click)="saveCategory()" 
+          class="bg-[#35AD79] text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">
           Save
         </button>
-        <button type="button" (click)="closeModals()" class="bg-gray-500 text-white px-4 py-2 rounded">
+        <button type="button" (click)="closeModals()" 
+          class="bg-gray-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-200">
           Cancel
         </button>
       </div>
+      
     </form>
-  </div>
+  </div>
 </div>

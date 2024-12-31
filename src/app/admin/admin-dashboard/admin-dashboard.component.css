@@ -1,0 +1,36 @@
+.charts-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .chart-container {
+    flex: 1; /* Equal width for both charts */
+    max-width: 48%; /* Ensures the charts don't exceed 48% of the container width */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  jqx-chart {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .chart-container h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .chart-container {
+      max-width: 100%; /* Full-width on smaller screens */
+    }
+  }
+  

@@ -12,24 +12,29 @@ import { FooterComponent } from './layouts/outerLayout/footer/footer.component';
 import { CustomerFooterComponent } from './layouts/customerLayout/customer-footer/customer-footer.component';
 import { FavouritesComponent } from './customer/favourites/favourites.component';
 import { SignInComponent } from './outer/signIn/signIn.component';
-import { SellerFeedbacksComponent } from './seller/seller-feedbacks/seller-feedbacks.component';
-import { SellerOrdersComponent } from './seller/seller-orders/seller-orders.component';
 import { SellerLayoutComponent } from './layouts/sellerLayout/sellerLayout.component';
 import { UserMangementComponent } from './admin/user-mangement/user-mangement.component';
-import { ProfileComponent } from './customer/profile/profile.component';
 import { SettingsComponent } from './customer/settings/settings.component';
 import { ChatsComponent } from './customer/chats/chats.component';
 import { AdminLayoutSidebarComponent } from './layouts/adminLayout/admin-layout-sidebar/admin-layout-sidebar.component';
 import { SellerInfoComponent } from './seller/seller-info/seller-info.component';
 import { AddressComponent } from './customer/address/address.component';
 import { AdminLoginComponent } from './outer/admin-login/admin-login.component';
-// import { CategoriesComponent } from './outer/categories/categories.component';
-import { ProductsComponent } from './admin/products/products.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
-import { FootballComponent } from './admin/football/football.component';
-import { SellerComponent } from './admin/seller/seller.component';
-import { OrdersComponent } from './admin/orders/orders.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AddSellerComponent } from './admin/admin-seller/add-seller/add-seller.component';
+import { ListSellerComponent } from './admin/admin-seller/list-seller/list-seller.component';
+import { CustomerOrdersComponent } from './customer/customer-orders/customer-orders.component';
+import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
+import { ListProductComponent } from './admin/admin-products/list-product/list-product.component';
+import { AddProductComponent } from './admin/admin-products/add-product/add-product.component';
+import { AdminChatsComponent } from './admin/admin-chats/admin-chats.component';
+import { SellerDashboardComponent } from './seller/seller-dashboard/seller-dashboard.component';
+import { MyProfileComponent } from './customer/profile/my-profile/my-profile.component';
+import { ResetPasswordComponent } from './customer/profile/reset-password/reset-password.component';
+import { SellerProfileComponent } from './seller/seller-profile/seller-profile.component';
+import { SellerPasswordComponent } from './seller/seller-password/seller-password.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 
 // Define routes
@@ -54,11 +59,14 @@ const routes: Routes = [
     path: 'customer',
     component: CustomerLayoutComponent,
     children: [
-      { path: 'orders', component: OrdersComponent },
+      { path: '', redirectTo: 'customer-dashboard', pathMatch: 'full' }, 
+      { path: 'customer-dashboard', component: CustomerDashboardComponent },
+      { path: 'customer-orders', component: CustomerOrdersComponent },
       { path: 'address', component: AddressComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'chats', component: ChatsComponent },
-      { path: '', redirectTo: 'orders', pathMatch: 'full' },
+      { path: 'my-profile', component: MyProfileComponent },
+      { path: 'reset-password', component: ResetPasswordComponent },
     ],
   },
 
@@ -67,10 +75,11 @@ const routes: Routes = [
     path: 'seller',
     component: SellerLayoutComponent,
     children: [
+      { path: 'seller-dashboard', component: SellerDashboardComponent }, 
       { path: 'seller-info', component: SellerInfoComponent },
-      { path: 'seller-orders', component: SellerOrdersComponent }, 
-      { path: 'seller-feedbacks', component: SellerFeedbacksComponent },
-      { path: '', redirectTo: 'seller-orders', pathMatch: 'full' }, 
+      { path: 'seller-profile', component: SellerProfileComponent },
+      { path: 'seller-password', component: SellerPasswordComponent },
+      { path: '', redirectTo: 'seller-dashboard', pathMatch: 'full' }, 
     ],
   },
 
@@ -79,13 +88,15 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutsComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'products', component: ProductsComponent },
       { path: 'admin-categories', component: AdminCategoriesComponent },
-      { path: 'orders', component: OrdersComponent },
-      { path: 'seller', component: SellerComponent },
+      { path: 'admin-orders', component: AdminOrdersComponent },
+      { path: 'add-seller', component: AddSellerComponent },
+      { path: 'list-seller', component: ListSellerComponent },
       { path: 'user-mangement', component: UserMangementComponent },
-     { path: 'football', component: FootballComponent },
+      { path: 'list-product', component: ListProductComponent },
+      { path: 'add-product', component: AddProductComponent },
+      { path: 'admin-chats', component: AdminChatsComponent },
+      { path: 'admin-dashboard', component: AdminDashboardComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
     ],
   },

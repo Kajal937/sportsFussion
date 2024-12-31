@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { LoginUser } from '../../models/user';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,10 +15,10 @@ export class SignInComponent {
   signInForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    roleId: new FormControl<number>(0, [Validators.required]), // Ensure roleId is a number
+    RoleId: new FormControl('', [Validators.required]),
   });
 
-  selectedTab: string = 'seller'; // Default tab selection
+  selectedTab: string = 'seller';
 
   constructor(
     private authService: AuthService,
@@ -25,7 +26,7 @@ export class SignInComponent {
     private router: Router
   ) {}
 
-  // Getter for email
+  // Getter for emai
   get email() {
     return this.signInForm.get('email');
   }
@@ -36,20 +37,9 @@ export class SignInComponent {
   }
 
   // Getter for roleId
-  get roleId() {
-    return this.signInForm.get('roleId');
+  get RoleId() {
+    return this.signInForm.get('RoleId');
   }
-
-  // Method to handle the user role tab selection
-  // selectTab(tab: string) {
-  //   this.selectedTab = tab;
-  //   // Set the roleId based on the tab selection
-  //   if (tab === 'customer') {
-  //     this.signInForm.get('roleId')?.setValue(2); // Customer role
-  //   } else if (tab === 'seller') {
-  //     this.signInForm.get('roleId')?.setValue(3); // Seller role
-  //   }
-  // }
 
   // Method to handle sign-in
   signInUser() {
@@ -58,23 +48,32 @@ export class SignInComponent {
       return;
     }
 
-    const loginUser = this.signInForm.value as LoginUser;
-
-    // Prepare login data with roleId passed as a number
-    // const loginData: LoginUser = {
-    //   email: this.signInForm.value.email || '',
-    //   password: this.signInForm.value.password || '',
-    //   roleId: this.signInForm.value.roleId ?? 0, // Ensure roleId is set properly
-    // };
+    const loginUser = this.signInForm.value as unknown as LoginUser;
 
     this.authService.login(loginUser).subscribe(
       (response) => {
-        console.log('Login successful', response);
-        if (loginUser.roleId === 2) {
-          this.router.navigate(['customer']);
+        const token = response.token; // Assuming the token is returned in `response.token`
+        if (token) {
+          // Save the token to localStorage
+          localStorage.setItem('authToken', token);
+
+          // Decode the token to extract the Id
+          const decodedToken: any = jwtDecode(token); // Decode the JWT
+          const userId = decodedToken.Id; // Extract the `Id` field
+          const firstName = decodedToken.FirstName;
+          if (userId && firstName) {
+            localStorage.setItem('userId', userId.toString()); // Save Id to localStorage
+            localStorage.setItem('firstName', firstName);
+          }
+        }
+
+        if (loginUser.RoleId == 2) {
+          this.router.navigate(['/customer/customer-dashboard']);
+          console.log('Navigating to customer');
+          console.log('Login successful', response);
           // Redirect to customer dashboard
-        } else if (loginUser.roleId === 3) {
-          this.router.navigate(['seller']); // Correct if route exists
+        } else if (loginUser.RoleId == 3) {
+          this.router.navigate(['/seller']); // Correct if route exists
 
           console.log('Navigating to seller');
         }

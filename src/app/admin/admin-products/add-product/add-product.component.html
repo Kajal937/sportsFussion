@@ -1,0 +1,112 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add Product</h2>
+
+  <!-- Form Wrapper with Box Shadow -->
+  <div class="shadow-lg p-5 rounded-lg bg-white w-75 mx-auto">
+    <!-- Form to Add Product -->
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+
+      <!-- Product Name -->
+      <div class="form-group mb-3">
+        <label for="product_name" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="product_name" formControlName="product_name"
+          placeholder="Enter product name" required />
+        <div *ngIf="addProductForm.get('product_name')?.touched && addProductForm.get('product_name')?.invalid"
+          class="text-danger">
+          <small *ngIf="addProductForm.get('product_name')?.errors?.['required']">Product Name is required</small>
+        </div>
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="form-group mb-3">
+        <label for="categoryName" class="form-label">Category Name</label>
+        <select class="form-select" id="categoryName" formControlName="categoryName" required>
+          <option value="" disabled selected>Select Category</option>
+          <option *ngFor="let category of categories" [value]="category.name">
+            {{ category.name }}
+          </option>
+        </select>
+        <div *ngIf="addProductForm.get('categoryName')?.touched && addProductForm.get('categoryName')?.invalid"
+          class="text-danger">
+          <small *ngIf="addProductForm.get('categoryName')?.errors?.['required']">Category is required</small>
+        </div>
+      </div>
+
+      <!-- Material Type -->
+      <div class="form-group mb-3">
+        <label for="material_type" class="form-label">Material Type</label>
+        <input type="text" class="form-control" id="material_type" formControlName="material_type"
+          placeholder="Enter material type" required />
+        <div *ngIf="addProductForm.get('material_type')?.touched && addProductForm.get('material_type')?.invalid"
+          class="text-danger">
+          <small *ngIf="addProductForm.get('material_type')?.errors?.['required']">Material Type is required</small>
+        </div>
+      </div>
+
+      <!-- Image Upload -->
+      <div class="form-group mb-3">
+        <label for="image" class="form-label">Image Upload</label>
+        <input type="file" class="form-control" id="image" (change)="onFileChange($event)" accept="image/*" required />
+        <div *ngIf="addProductForm.get('image_url')?.touched && addProductForm.get('image_url')?.invalid"
+          class="text-danger">
+          <small *ngIf="addProductForm.get('image_url')?.errors?.['required']">Image is required</small>
+        </div>
+      </div>
+
+      <!-- Image Preview -->
+      <div class="form-group mb-3">
+        <img *ngIf="imageBase64" [src]="imageBase64" alt="Image Preview" style="max-width: 150px; height: auto;" />
+      </div>
+
+      <!-- Status -->
+      <div class="form-group mb-3">
+        <label for="status" class="form-label">Status</label>
+        <div class="input-group">
+          <select class="form-select" id="status" formControlName="status" required>
+            <option value="" disabled selected>Select Status</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </div>
+        <div *ngIf="addProductForm.get('status')?.touched && addProductForm.get('status')?.invalid" class="text-danger">
+          <small *ngIf="addProductForm.get('status')?.errors?.['required']">Status is required</small>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" formControlName="description"
+          placeholder="Enter product description" required></textarea>
+        <div *ngIf="addProductForm.get('description')?.touched && addProductForm.get('description')?.invalid"
+          class="text-danger">
+          <small *ngIf="addProductForm.get('description')?.errors?.['required']">Description is required</small>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="form-group mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" formControlName="price" placeholder="Enter product price"
+          required />
+        <div *ngIf="addProductForm.get('price')?.touched && addProductForm.get('price')?.invalid" class="text-danger">
+          <small *ngIf="addProductForm.get('price')?.errors?.['required']">Price is required</small>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center flex gap-3">
+        <button type="submit" class="btn px-4 py-2 text-white" [disabled]="addProductForm.invalid"
+          style="background-color: #35AD79;">
+          Add
+        </button>
+        <button type="button" class="btn px-4 py-2 text-white" routerLink="../list-product"
+          style="background-color: #35AD79;">
+          Back
+        </button>
+      </div>
+
+
+ </form>
+  </div>
+</div>

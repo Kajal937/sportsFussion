@@ -28,9 +28,9 @@ Add this custom CSS
 }
 
 .signIn-input:focus {
-  border-color: #e03c31; /* Highlight border color */
+  border-color: #e03c31; 
   outline: none;
-  box-shadow: 0 0 5px rgba(224, 60, 49, 0.5); /* Subtle focus shadow */
+  box-shadow: 0 0 5px rgba(224, 60, 49, 0.5); 
 }
 
 .email, .password {

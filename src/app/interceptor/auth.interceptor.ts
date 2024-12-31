@@ -30,16 +30,12 @@ export class authInterceptor implements HttpInterceptor {
             this.toastr.error('Internal Server Error');
           } else if (error.status === 408) {
             this.toastr.error('Request Timeout');
-          } else {
-            console.error('Error:', error);
-            this.toastr.error('An error occurred. Please try again later.');
-          }
+          } 
+          
           return throwError(error);
         })
       );
     } else {
-      this.router.navigate(['/login-form']);
-      // this.toastr.error('Token expired');
       return next.handle(req);
     }
   }

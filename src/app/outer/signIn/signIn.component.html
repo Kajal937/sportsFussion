@@ -1,35 +1,51 @@
-<!-- Form starts here -->
-<form class="signIn-container p-6 shadow-lg rounded-lg w-4/12 mx-auto mt-8 mb-10" [formGroup]="signInForm" (ngSubmit)="signInUser()">
-  <h1 class="text-center text-2xl font-semibold  ">Sign In</h1>
+<form class="min-h-screen flex flex-col bg-[#F3F7F9]" [formGroup]="signInForm" (ngSubmit)="signInUser()">
+  <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 mt-[80px]">
+    <div class="bg-white px-6 py-8 rounded shadow-md text-black w-[464px]">
+      <h1 class="mb-8 text-3xl text-center font-semibold">Log In</h1>
 
-  <!-- Radio buttons to select user type (Customer or Seller) -->
-  <div class="user-type-selection flex justify-center mb-4">
-    <label class="mr-4 flex items-center">
-      <input type="radio" formControlName="roleId" value="2" class="mr-2" name="roleId" />
-      Customer
-    </label>
-    <label class="flex items-center">
-      <input type="radio" formControlName="roleId" value="3" class="mr-2" name="roleId" />
-      Seller
-    </label>
-  </div>
+      <div class="user-type-selection flex justify-center mb-4">
+        <label class="mr-4 flex items-center text-sm sm:text-base">
+          <input type="radio" formControlName="RoleId" value="2" class="mr-2" name="RoleId" />
+          Customer
+        </label>
+        <label class="flex items-center text-sm sm:text-base">
+          <input type="radio" formControlName="RoleId" value="3" class="mr-2" name="RoleId" />
+          Seller
+        </label>
+      </div>
 
-  <!-- Email Field -->
-  <div class="email mb-4">
-    <label for="email" class="block text-sm font-medium">Email</label>
-    <input id="email" formControlName="email" class="signIn-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" placeholder="Enter Email" />
-    <span *ngIf="email?.invalid && email?.touched" class="text-red-500 text-xs">The email field is required</span>
-  </div>
+      <div class="email mb-4">
+        <label for="email" class="block text-sm sm:text-base font-medium">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          class="block border border-grey-light w-full p-3 rounded mb-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500"
+          type="text"
+          placeholder="Enter Email"
+        />
+        <span *ngIf="email?.invalid && email?.touched" class="text-red-500 text-xs">The email field is required</span>
+      </div>
 
-  <!-- Password Field -->
-  <div class="mb-4">
-    <label for="password" class="block text-sm font-medium">Password</label>
-    <input id="password" formControlName="password" class="signIn-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="password" placeholder="Enter Password" />
-    <span *ngIf="password?.invalid && password?.touched" class="text-red-500 text-xs">The password field is required</span>
-  </div>
+      <div class="password mb-4">
+        <label for="password" class="block text-sm sm:text-base font-medium">Password</label>
+        <input
+          id="password"
+          formControlName="password"
+          class="block border border-grey-light w-full p-3 rounded mb-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500"
+          type="password"
+          placeholder="Enter Password"
+        />
+        <span *ngIf="password?.invalid && password?.touched" class="text-red-500 text-xs">The password field is required</span>
+      </div>
 
-  <!-- Submit Button -->
-  <div class="mt-6">
-    <button type="submit" class="btn-signIn w-full bg-[#E03C31] text-white py-3 rounded-md hover:bg-red-700 focus:outline-none">Log in</button>
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="w-full text-center py-3 rounded text-white bg-[#35ad79] hover:bg-green-700 focus:outline-none"
+        >
+          Log In
+        </button>
+      </div>
+    </div>
   </div>
 </form>

@@ -1,63 +1,79 @@
-<form class="sign-container mt-[80px] !mt-[80px]" [formGroup]="signUpForm" (ngSubmit)="signUpUser()">
-<h1 class="text-center">Sign Up</h1>
+<form class="min-h-screen flex flex-col bg-[#F3F7F9] px-4 sm:px-8 md:px-16 py-10" [formGroup]="signUpForm" (ngSubmit)="signUpUser()">
+  <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-4 mt-[100px]">
+    <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full sm:w-[464px]">
+      <h1 class="text-center text-2xl sm:text-3xl font-semibold mb-6">Sign Up</h1>
 
-<div>
-  <label for="firstname">First Name*</label><br>
-  <input formControlName="firstname" class="sign-input focus:outline-none" type="text" id="firstname" placeholder="First Name" />
-  <span *ngIf="signUpForm.get('firstname')?.invalid && signUpForm.get('firstname')?.touched" class="text-red-500">The name field is required.</span>
-</div>
+      <!-- First Name -->
+      <div class="mb-4">
+        <label for="firstname" class="block text-sm sm:text-base">First Name*</label>
+        <input formControlName="firstname" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="firstname" placeholder="First Name" />
+        <span *ngIf="signUpForm.get('firstname')?.invalid && signUpForm.get('firstname')?.touched" class="text-red-500 text-xs">The name field is required.</span>
+      </div>
 
-<div>
-  <label for="lastname">Last Name*</label><br>
-  <input formControlName="lastname" class="sign-input focus:outline-none" type="text" id="lastname" placeholder="Last Name" />
-  <span *ngIf="signUpForm.get('lastname')?.invalid && signUpForm.get('lastname')?.touched" class="text-red-500">The last name field is required.</span>
-</div>
+      <!-- Last Name -->
+      <div class="mb-4">
+        <label for="lastname" class="block text-sm sm:text-base">Last Name*</label>
+        <input formControlName="lastname" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="lastname" placeholder="Last Name" />
+        <span *ngIf="signUpForm.get('lastname')?.invalid && signUpForm.get('lastname')?.touched" class="text-red-500 text-xs">The last name field is required.</span>
+      </div>
 
-<div>
-  <label for="email">Email*</label><br>
-  <input formControlName="email" class="sign-input focus:outline-none" type="email" id="email" placeholder="Email" />
-  <span *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="text-red-500">
-    The email is not valid or is required.
-  </span>
-</div>
+      <!-- Email -->
+      <div class="mb-4">
+        <label for="email" class="block text-sm sm:text-base">Email*</label>
+        <input formControlName="email" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="email" id="email" placeholder="Email" />
+        <span *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="text-red-500 text-xs">The email is not valid or is required.</span>
+      </div>
 
-<div>
-  <label for="gender">Gender*</label><br>
-  <select formControlName="gender" class="sign-input focus:outline-none" id="gender">
-    <option value="" disabled>Select Gender</option>
-    <option value="female">Female</option>
-    <option value="male">Male</option>
-    <option value="other">Other</option>
-  </select>
-  <span *ngIf="signUpForm.get('gender')?.invalid && signUpForm.get('gender')?.touched" class="text-red-500">The gender field is required.</span>
-</div>
+      <!-- Gender -->
+      <div class="mb-4">
+        <label for="gender" class="block text-sm sm:text-base">Gender*</label>
+        <select formControlName="gender" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" id="gender">
+          <option value="" disabled>Select Gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+        <span *ngIf="signUpForm.get('gender')?.invalid && signUpForm.get('gender')?.touched" class="text-red-500 text-xs">The gender field is required.</span>
+      </div>
 
-<div>
-  <label for="mobileNumber">Mobile Number*</label><br>
-  <input formControlName="mobileNumber" class="sign-input focus:outline-none" type="tel" id="mobileNumber" placeholder="Mobile Number" />
-  <span *ngIf="signUpForm.get('mobileNumber')?.invalid && signUpForm.get('mobileNumber')?.touched" class="text-red-500">
-    Enter a valid 10-digit mobile number.
-  </span>
-</div>
+      <!-- Mobile Number -->
+      <div class="mb-4">
+        <label for="mobileNumber" class="block text-sm sm:text-base">Mobile Number*</label>
+        <input formControlName="mobileNumber" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="tel" id="mobileNumber" placeholder="Mobile Number" />
+        <span *ngIf="signUpForm.get('mobileNumber')?.invalid && signUpForm.get('mobileNumber')?.touched" class="text-red-500 text-xs">Enter a valid 10-digit mobile number.</span>
+      </div>
 
-<div>
-  <label for="password">Password*</label><br>
-  <input formControlName="password" class="sign-input focus:outline-none" type="password" id="password" placeholder="Password" />
-  <span *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="text-red-500">
-    Password must be at least 6 characters long.
-  </span>
-</div>
+      <!-- Password -->
+      <div class="mb-4">
+        <label for="password" class="block text-sm sm:text-base">Password*</label>
+        <input formControlName="password" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="password" id="password" placeholder="Password" />
+        <span *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="text-red-500 text-xs">Password must be at least 6 characters long.</span>
+      </div>
 
-<div>
-  <label for="roleId">RoleId*</label>
-  <select formControlName="roleId" class="sign-input focus:outline-none" id="roleId">
-    <option value="" disabled>Select RoleId</option>
-    <option *ngFor="let role of roles" [value]="role.value">{{role.displayName}}</option>
-  </select>
-  <span *ngIf="signUpForm.get('roleId')?.invalid && signUpForm.get('roleId')?.touched" class="text-red-500">
-    Role is required
-  </span>
-</div>
+      <!-- RoleId -->
+      <div class="mb-4">
+        <label for="roleId" class="block text-sm sm:text-base">RoleId*</label>
+        <select formControlName="RoleId" class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" id="roleId">
+          <option value="" disabled>Select RoleId</option>
+          <option *ngFor="let role of roles" [value]="role.value">{{role.displayName}}</option>
+        </select>
+        <span *ngIf="signUpForm.get('RoleId')?.invalid && signUpForm.get('RoleId')?.touched" class="text-red-500 text-xs">Role is required.</span>
+      </div>
 
-<button type="submit" class="bg-[#E03C31] text-white mt-[28px]">Sign Up</button>
+      <!-- Submit Button -->
+      <button type="submit" class="w-full bg-[#35ad79] hover:bg-green-700 text-white py-3 mt-6 rounded-md focus:outline-none text-sm sm:text-base">
+        Sign Up
+      </button>
+    </div>
+
+    <!-- Already have an account -->
+    <div class="text-center text-sm text-gray-600 mt-6">
+      Already have an account? 
+      <a class="no-underline border-b border-blue-500 text-blue-500" href="../login/">
+        Log in
+      </a>.
+    </div>
+  </div>
 </form>
+
+

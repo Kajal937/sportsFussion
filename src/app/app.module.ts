@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './outer/home/home.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AboutComponent } from './outer/about/about.component';
-import { CategoriesComponent } from './outer/categories/categories.component';
 import { DataService } from './services/data.service';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { SellerLayoutComponent } from './layouts/sellerLayout/sellerLayout.component';
@@ -22,39 +21,42 @@ import { ContactusComponent } from './outer/contactus/contactus.component';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerHeaderComponent } from './layouts/customerLayout/customer-header/customer-header.component';
 import { CustomerFooterComponent } from './layouts/customerLayout/customer-footer/customer-footer.component';
-import { OrdersComponent } from './customer/orders/orders.component';
-import { FavouritesComponent } from './customer/favourites/favourites.component';
-import { SettingsComponent } from './customer/settings/settings.component';
-import { CartComponent } from './customer/cart/cart.component';
-import { ProfileComponent } from './customer/profile/profile.component';
 import { SidebarComponent } from './customer/sidebar/sidebar.component';
 import { ChatsComponent } from './customer/chats/chats.component';
 import { AdminLayoutHeaderComponent } from './layouts/adminLayout/admin-layout-header/admin-layout-header.component';
 import { AdminLayoutFooterComponent } from './layouts/adminLayout/admin-layout-footer/admin-layout-footer.component';
-import { SellerComponent } from './seller/seller.component';
 import { SellerHeaderComponent } from './layouts/sellerLayout/seller-header/seller-header.component';
 import { SellerFooterComponent } from './layouts/sellerLayout/seller-footer/seller-footer.component';
-import { SellerOrdersComponent } from './seller/seller-orders/seller-orders.component';
-import { SellerFeedbacksComponent } from './seller/seller-feedbacks/seller-feedbacks.component';
 import { UserMangementComponent } from './admin/user-mangement/user-mangement.component';
 import { CustomerSidebarComponent } from './layouts/customerLayout/customer-sidebar/customer-sidebar.component';
 import { AdminLayoutSidebarComponent } from './layouts/adminLayout/admin-layout-sidebar/admin-layout-sidebar.component';
 import { SellerSidebarComponent } from './layouts/sellerLayout/seller-sidebar/seller-sidebar.component';
-import { SellerInfoComponent } from './seller/seller-info/seller-info.component';
-import { AddressComponent } from './customer/address/address.component';
 import { AdminLoginComponent } from './outer/admin-login/admin-login.component';
-import { BallsComponent } from './admin/balls/balls.component';
-import { CricketGearComponent } from './admin/cricket-gear/cricket-gear.component';
-import { FootwearComponent } from './admin/footwear/footwear.component';
-import { ProductsComponent } from './admin/products/products.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
-import { FootballComponent } from './admin/football/football.component';
-import { CricketComponent } from './admin/cricket/cricket.component';
-import { BasketballComponent } from './admin/basketball/basketball.component';
-
 import { provideToastr } from 'ngx-toastr';
 import { authInterceptor } from './interceptor/auth.interceptor';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
+import { AddSellerComponent } from './admin/admin-seller/add-seller/add-seller.component';
+import { ListSellerComponent } from './admin/admin-seller/list-seller/list-seller.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
+import { ListProductComponent } from './admin/admin-products/list-product/list-product.component';
+import { AddProductComponent } from './admin/admin-products/add-product/add-product.component';
+import { SellerDashboardComponent } from './seller/seller-dashboard/seller-dashboard.component';
+import { CustomerOrdersComponent } from './customer/customer-orders/customer-orders.component';
+import { AdminChatsComponent } from './admin/admin-chats/admin-chats.component';
+import { ChatService } from './services/chat.service';
+import { MyProfileComponent } from './customer/profile/my-profile/my-profile.component';
+import { ResetPasswordComponent } from './customer/profile/reset-password/reset-password.component';
+import { SellerProfileComponent } from './seller/seller-profile/seller-profile.component';
+import { SellerPasswordComponent } from './seller/seller-password/seller-password.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import * as Highcharts from 'highcharts';
+import HighchartsAccessibility from 'highcharts/modules/accessibility';
+import { BaseChartDirective} from 'ng2-charts';
+import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { CardComponent } from './outer/card/card.component'
 
 @NgModule({
   declarations: [
@@ -65,50 +67,43 @@ import { authInterceptor } from './interceptor/auth.interceptor';
     FooterComponent,
     SignupComponent,
     SignInComponent,
-    CategoriesComponent,
     ContactusComponent,
     AdminLayoutsComponent,
-    CustomerLayoutComponent,
+    CustomerLayoutComponent, 
     OuterLayoutComponent,
-    SellerLayoutComponent,
+    SellerLayoutComponent, 
     AdminComponent,
     CustomerHeaderComponent,
     CustomerFooterComponent,
-    OrdersComponent,
-    FavouritesComponent,
-    SettingsComponent,
-    CartComponent,
-    ProfileComponent,
     SidebarComponent,
     ChatsComponent,
     AdminLayoutHeaderComponent,
     AdminLayoutFooterComponent,
-    SellerComponent,
     SellerHeaderComponent,
     SellerFooterComponent,
-    SellerOrdersComponent,
-    SellerFeedbacksComponent,
     UserMangementComponent,
-    CustomerLayoutComponent,
-    SellerLayoutComponent,
-    SellerSidebarComponent,
-    AdminLayoutsComponent,
     CustomerSidebarComponent,
-     AdminLayoutSidebarComponent,
-    SellerInfoComponent,
-    AddressComponent,
-    AdminLoginComponent, 
-    BallsComponent,
-    CricketGearComponent,
-    FootwearComponent,
-    ProductsComponent,
-    CategoriesComponent,
-    OrdersComponent,
-    DashboardComponent,
+    AdminLayoutSidebarComponent,
+    SellerSidebarComponent,
+    AdminLoginComponent,
     AdminCategoriesComponent,
-    FootballComponent,
-    CricketComponent,
-    BasketballComponent,
+    ListSellerComponent,
+    AddSellerComponent,
+    AdminOrdersComponent,
+    CustomerDashboardComponent,
+    ListProductComponent,
+    AddProductComponent,
+    SellerDashboardComponent,
+    CustomerOrdersComponent,
+    AdminChatsComponent,
+    ChatsComponent,
+    MyProfileComponent,
+    ResetPasswordComponent,
+    SellerProfileComponent,
+    SellerPasswordComponent,
+    AdminDashboardComponent,
+    CardComponent,
+    OuterLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,8 +113,17 @@ import { authInterceptor } from './interceptor/auth.interceptor';
     CarouselModule.forRoot(),
     BrowserAnimationsModule, 
     FormsModule,
+    CommonModule ,
+    CurrencyPipe,
+    HighchartsChartModule,
+    BaseChartDirective,
+    jqxChartModule
+    
   ],
-  providers: [DataService,  
+  providers: [
+    DataService, 
+    DatePipe, 
+    ChatService,
     provideToastr(),
     {
       provide: HTTP_INTERCEPTORS,
@@ -129,6 +133,5 @@ import { authInterceptor } from './interceptor/auth.interceptor';
     provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent],
-  
 })
 export class AppModule {}

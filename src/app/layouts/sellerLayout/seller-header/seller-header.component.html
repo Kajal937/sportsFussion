@@ -1,1 +1,209 @@
-<p>seller-header works!</p>
+<!-- <nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
+    <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+      <h1 class="style-heading text-yellow-500">Style</h1>
+  
+      <div class="menu flex items-center gap-6">
+        <i class="fa-solid fa-user text-white text-xl"></i>
+  
+       
+  
+        <button class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none transition duration-300">
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+   -->
+
+
+   <!-- 
+<nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+    <h1 class="style-heading text-yellow-500">Style</h1>
+  
+    <div class="menu flex items-center gap-6">
+      <a routerLink="/seller/seller-dashboard" routerLinkActive="active" class="text-gray-100 hover:text-blue-600">
+        Dashboard
+      </a>
+  
+      <a routerLink="/seller/seller-info" routerLinkActive="active" class="text-gray-100 hover:text-blue-600">
+        My Info
+      </a>
+
+      <i class="fa-solid fa-user text-white text-xl"></i>
+
+      <button class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none transition duration-300">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+ -->
+
+<!-- 
+   <nav class="navbar-container bg-red-500 text-white shadow-md px-6 w-full">
+    <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+      <h1 class="logo text-2xl font-bold text-yellow-500">ShopZone</h1>
+  
+      <div class="menu flex items-center gap-6 relative">
+
+        <div class="relative">
+          <i
+            class="fa-solid fa-user text-white text-xl cursor-pointer"
+            (click)="toggleDropdown()"
+          ></i>
+  
+          <div
+            *ngIf="isDropdownOpen"
+            class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          >
+            <ul>
+              <li
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                routerLink="seller-profile"
+                routerLinkActive="active"
+              >
+                My Profile
+              </li>
+              
+              <li
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                routerLink="seller-password"
+                routerLinkActive="active"
+              >
+                Reset Password
+              </li>
+            </ul>
+          </div>
+        </div>
+       
+        <i class="fa-solid fa-cart-shopping text-white text-xl cursor-pointer"></i>
+  
+        <button class="bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300" (click)="onLogout()">
+          Logout
+        </button>
+  
+      </div>
+    </div>
+  </nav>
+
+
+
+
+ -->
+
+
+
+ <!-- <nav class="navbar-container bg-black text-white shadow-md px-6 w-full h-[70px]">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto h-full">
+    <div class="logo-container flex items-center">
+      <img src="assets/logo.png" alt="Logo" class="logo h-[90px] w-auto"> 
+    </div>
+
+    <div class="lg:hidden flex items-center">
+      <i class="fa-solid fa-bars text-white text-2xl cursor-pointer" (click)="toggleNavbar()"></i>
+    </div>
+
+    <div class="menu flex items-center gap-6 relative hidden lg:flex">
+      <a routerLink="/seller/seller-dashboard" routerLinkActive="active" class="text-gray-100 hover:text-blue-600">
+        Dashboard
+        <i class="fa-solid fa-tachometer-alt"></i>
+      </a>
+      <div class="relative">
+        <i
+          class="fa-solid fa-user text-white text-xl cursor-pointer"
+          (click)="toggleDropdown()"
+        ></i>
+
+        <div *ngIf="isDropdownOpen" class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+          <ul>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" (click)="navigateTo('seller/seller-profile')">
+              My Profile
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" (click)="navigateTo('seller/seller-password')">
+              Reset Password
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button
+        class="bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300"
+        (click)="onLogout()"
+      >
+        Logout
+      </button>
+    </div>
+
+    <div *ngIf="isNavbarOpen" class="lg:hidden w-full bg-black text-white absolute top-[70px] left-0 z-10">
+      <a routerLink="/seller/seller-dashboard" routerLinkActive="active" class="block px-4 py-2 text-gray-100 hover:text-blue-600" (click)="closeNavbar()">
+        Dashboard
+      </a>
+      <a (click)="navigateTo('seller/seller-profile')" class="block px-4 py-2 text-gray-100 hover:text-blue-600" (click)="closeNavbar()">
+        My Profile
+      </a>
+      <a (click)="navigateTo('seller/seller-password')" class="block px-4 py-2 text-gray-100 hover:text-blue-600" (click)="closeNavbar()">
+        Reset Password
+      </a>
+      <button
+        class="block ml-[20px] py-2 px-4 bg-yellow-500 text-black rounded-lg hover:bg-yellow-600 transition duration-300"
+        (click)="onLogout()"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</nav> -->
+
+
+
+<nav class="w-full bg-[#2c2d31] shadow-md fixed top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-3 py-2">
+    <!-- Logo -->
+    <div class="font-bold text-gray-800">
+      <img src="assets/impS.png" alt="Logo" class="logo h-[70px] w-auto">
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="sm:hidden text-white text-2xl" (click)="toggleMenu()">
+      {{ isMobileMenuOpen ? '✖' : '☰' }}
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden sm:flex items-center gap-8 font-semibold text-[14px] text-white uppercase mb-0">
+      <li><a routerLink="/seller/seller-dashboard" class="text-[#35ad79] hover:text-[#004E89] transition">Dashboard</a></li>
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen"
+          class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          style="display: block; position: absolute; top: 40px; right: 0; background-color: white; color: black; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 200px;">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li (click)="navigateToProfile()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              My Profile
+            </li>
+            <li (click)="navigateToResetPassword()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              Reset Password
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <li>
+        <button (click)="onLogout()" class="bg-[#35ad79] text-white py-2 px-4 rounded-lg hover:bg-[#00356b] transition">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="sm:hidden" [ngClass]="{'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}">
+    <ul class="flex flex-col items-center gap-4 py-2 bg-[#1a1b1e] shadow-sm">
+      <li><a routerLink="/seller/seller-dashboard" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Dashboard</a></li>
+      <li (click)="toggleDropdown()" class="text-white cursor-pointer">User Menu</li>
+      <li>
+        <button (click)="onLogout()" class="bg-[#35ad79] text-white py-2 px-4 rounded hover:bg-[#00356b] transition">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>

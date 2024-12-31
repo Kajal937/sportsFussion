@@ -1,0 +1,33 @@
+.main-content {
+  transition: margin-left 0.3s ease; /* Smooth transition */
+}
+
+.ml-64 {
+  margin-left: 16rem; /* Sidebar width */
+}
+
+.ml-0 {
+  margin-left: 0; /* Full width when sidebar is hidden */
+}
+
+
+main {
+  transition: margin-left 0.3s ease, margin-top 0.3s ease; /* Smooth transition for both left and top margins */
+  margin-top: 75px; /* This should be the height of your header */
+}
+
+
+main {
+  margin-top: 75px; 
+  transition: margin-left 0.3s ease;
+  overflow-y: auto; 
+  height: 100vh; 
+}
+
+.ml-64 {
+  margin-left: 16rem; /* Space when sidebar is visible */
+}
+
+.ml-0 {
+  margin-left: 0; /* Full width when sidebar is hidden */
+}

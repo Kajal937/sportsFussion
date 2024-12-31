@@ -1,0 +1,45 @@
+<!-- Chart Section using jqxChart -->
+<div class="chart-container mt-5 flex justify-center items-center w-full h-auto">
+  <jqxChart [width]="600" [height]="400" [title]="'Product Quantities'" [xAxis]="{ 
+      dataField: 'product_name',
+      displayText: 'Products'
+    }" [valueAxis]="{ 
+      unitInterval: 10, 
+      minValue: 0, 
+      title: { text: 'Quantity' }
+    }" [seriesGroups]="[{
+      type: 'column',
+      valueAxis: { 
+        unitInterval: 10, 
+        minValue: 0, 
+        title: { text: 'Quantity' }
+      },
+      series: [{ 
+        dataField: 'quantity', 
+        displayText: 'Quantity'
+      }]
+    }]" [source]="sellerGraphData">
+  </jqxChart>
+</div>
+
+<!-- Table displaying dynamic data -->
+<div class="shadow-lg rounded-lg p-5 mt-5 bg-white">
+  <div class="overflow-x-auto">
+    <table class="table-auto w-full border-collapse">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="py-3 px-4 text-center">First Name</th>
+          <th class="py-3 px-4 text-center">Product Name</th>
+          <th class="py-3 px-4 text-center">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of sellerData">
+          <td class="py-3 px-4 text-center">{{ data.first_name }}</td>
+          <td class="py-3 px-4 text-center">{{ data.product_name }}</td>
+          <td class="py-3 px-4 text-center">{{ data.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

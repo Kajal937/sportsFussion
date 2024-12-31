@@ -1,42 +1,42 @@
-<div>
-    <h2 class="heading-admin font-bold mb-8 text-gray-300">Sportify Admin</h2>
-    <nav class="flex flex-col space-y-4 text-[15px]">
-        <a routerLink="/admin/dashboard" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-        </a>
-        <a routerLink="/admin/products" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-boxes mr-2"></i> Products
-        </a>
-        <a routerLink="/admin/orders" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-shopping-cart mr-2"></i> Orders
-        </a>
-       
-        <a routerLink="/admin/seller" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-users mr-2"></i> Seller
-        </a>
-        
-        <a routerLink="/admin/admin-categories" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-th-large mr-2"></i> Categories
-        </a> 
-        <a routerLink="/admin/settings" routerLinkActive="active-link" class="sidebar-link">
-            <i class="fas fa-cogs mr-2"></i> Settings
-        </a>
+<aside [class.hidden]="!isSidebarVisible"
+  class="flex flex-col space-y-4 bg-gray-100 shadow-lg rounded-tl-{0px} rounded-tr-{8px} p-4 fixed  left-0 w-64 h-[calc(100vh-75px)] z-40 transition-all bg-[#2c2d31]">
+  <nav class="flex  flex-col gap-[20px]">
+    <!-- Sidebar links -->
+    <a routerLink="/admin/admin-dashboard" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-tachometer-alt mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Dashboard</span>
+    </a>
 
+    <a routerLink="/admin/list-product" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-boxes mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Products</span>
+    </a>
 
-    </nav>
-</div>
+    <a routerLink="/admin/admin-orders" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-shopping-cart mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Orders</span>
+    </a>
 
+    <a routerLink="/admin/list-seller" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-users mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Seller</span>
+    </a>
 
-  <!-- Categories Dropdown -->
-        <!-- <div class="relative">
-            <button (click)="toggleDropdown()"
-                class="flex items-center text-gray-200 hover:text-white px-4 py-2 rounded-lg transition duration-300 hover:bg-purple-600 w-full">
-                <i class="fas fa-th-large mr-2"></i> Categories
-                <i class="fas fa-chevron-down ml-2"></i>
-            </button>
-            <div *ngIf="isDropdownOpen" class="absolute left-0 w-full bg-gray-800 text-gray-200 rounded-lg mt-2">
-                <a routerLink="/admin/balls" class="block px-4 py-2 hover:bg-purple-600">Balls</a>
-                <a routerLink="/admin/cricket-gear" class="block px-4 py-2 hover:bg-purple-600">Cricket-gear</a>
-                <a routerLink="/admin/footwear" class="block px-4 py-2 hover:bg-purple-600">Footwear</a>
-            </div>
-        </div> -->
+    <a routerLink="/admin/admin-categories" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-th-large mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Categories</span>
+    </a>
+
+    <a routerLink="/admin/admin-chats" routerLinkActive="active-link"
+      class="text-white flex items-center p-2 rounded-md hover:bg-[#35AD79] transition group">
+      <i class="fas fa-comments mr-2 text-[#35AD79] group-hover:text-white"></i>
+      <span>Chats</span>
+    </a>
+
+  </nav>
+</aside>

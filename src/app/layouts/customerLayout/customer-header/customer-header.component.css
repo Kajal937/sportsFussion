@@ -1,3 +1,105 @@
-.logo{
-font-size: 33px !important;
+/* .navbar-container {
+  background-color: black;
+  color: white;
+  position: fixed;  
+  top: 0;           
+  left: 0;          
+  width: 100%;      
+  z-index: 50;      
+}
+
+.dropdown-menu {
+  z-index: 1000; 
+}
+
+.logout-btn {
+  transition: background-color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .menu {
+      display: flex;
+      flex-direction: column; 
+      gap: 10px;
+      align-items: flex-start;
+  }
+
+  .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .logo {
+      font-size: 20px !important;
+      height: auto; 
+  }
+}
+
+@media (min-width: 768px) {
+  .menu {
+      display: flex;
+      gap: 20px;
+  }
+
+  .sidebar-nav {
+      display: flex;
+      gap: 20px; 
+  }
+
+  .logo {
+      font-size: 30px !important;
+  }
+} */
+
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  z-index: 50; /* Ensure it is on top */
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 40px; /* Ensures dropdown is positioned correctly below the icon */
+  background: white;
+  z-index: 50; /* Ensures it's on top of other elements */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished look */
+  width: 200px; /* Fixed width for consistency */
+  font-size: 14px; /* Readable font size */
+  padding: 8px 0; /* Spacing around the dropdown items */
+}
+
+.dropdown-menu ul {
+  list-style: none; /* Removes default list styling */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+
+.dropdown-menu ul li {
+  padding: 12px 16px; /* Spacing for better click area */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f2f2f2; /* Subtle hover background */
+}
+
+.dropdown-menu ul li:not(:last-child) {
+  border-bottom: 1px solid #eaeaea; /* Divider between items */
+}
+
+.dropdown-menu ul li i {
+  margin-right: 8px; /* Space between icons and text */
 }

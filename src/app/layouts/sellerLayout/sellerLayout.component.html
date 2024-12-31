@@ -1,46 +1,18 @@
-<!-- 
 
 
-<app-customer-header></app-customer-header>
-<app-seller-sidebar></app-seller-sidebar>
-<router-outlet></router-outlet>
-<app-customer-footer></app-customer-footer>
+  <!-- Sidebar Component -->
+  <!-- <div class="fixed w-[15%] h-[calc(100vh-84px)] mt-[79px] bg-gray-100 shadow-md border-r border-gray-300 bg-yellow-500 ">
+     <app-seller-sidebar></app-seller-sidebar>
+  </div> -->
 
- -->
-
-<app-customer-header></app-customer-header>
-<!-- Header Component -->
-
-<!-- Main Container with Sidebar and Content using Flexbox -->
-<div class="flex">
-  <!-- Sidebar Section (fixed on the left) -->
-  <aside class="sidebar w-[15%] h-[807px] bg-gray-100 text-gray-800 p-5 shadow-md border-r border-gray-300">
-    <ul class="sidebar-nav space-y-4 w-full p-0">
-      <!-- Sidebar Links with routing -->
-      <li>
-        <a routerLink="/seller/seller-info" routerLinkActive="active" class="no-underline whitespace-nowrap">My Info</a>
-      </li>
-      <li>
-        <a routerLink="/seller/seller-products" routerLinkActive="active" class="no-underline whitespace-nowrap">Manage
-          Products</a>
-      </li>
-      <li>
-        <a routerLink="/seller/seller-orders" routerLinkActive="active" class="no-underline whitespace-nowrap">Manage
-          Orders</a>
-      </li>
-      <li>
-        <a routerLink="/seller/seller-feedbacks" routerLinkActive="active"
-          class="no-underline whitespace-nowrap">Support</a>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- Main Content Area with Router Outlet for Dynamic Content -->
-  <div class="w-full p-5">
+  <app-seller-header></app-seller-header>
+  <div class="flex">
+  <div class=" flex-1 p-5 bg-gray-50 ">
     <router-outlet></router-outlet>
-    <!-- Displays routed content based on sidebar links -->
   </div>
 </div>
 
-<app-customer-footer></app-customer-footer>
-<!-- Footer Component -->
+<app-seller-footer></app-seller-footer>
+
+
+

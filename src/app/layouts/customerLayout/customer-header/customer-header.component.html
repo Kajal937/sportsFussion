@@ -1,11 +1,380 @@
-<nav class="navbar-container bg-black text-white shadow-md px-6 w-full">
+<!-- <nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
   <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
     <h1 class="logo text-2xl font-bold text-yellow-500">Style</h1>
 
     <div class="menu flex items-center gap-6">
-      <i class="fa-solid fa-user text-white text-xl"></i>
-      <i class="fa-solid fa-cart-shopping text-white text-xl"></i>
-      <button (click)="onLogout()" class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none transition duration-300">Logout</button>
+     
+<div class="relative">
+  <i
+    class="fa-solid fa-user text-white text-xl cursor-pointer"
+    (click)="toggleDropdown()"
+  ></i>
+
+  <div
+    *ngIf="isDropdownOpen"
+    class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+  >
+    <ul>
+      <li
+        class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+        routerLink="/customer/my-profile"
+        routerLinkActive="active"
+      >
+        My Profile
+      </li>
+     
+      <li
+        class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+        routerLink="/customer/reset-password"
+        routerLinkActive="active"
+      >
+        Reset Password
+      </li>
+    </ul>
+  </div>
+      </div> -->
+
+<!-- nisha end code -->
+
+
+<!-- <div class="relative" >
+        <i class="fa-solid fa-cart-shopping text-white text-xl" routerLink="/customer/customer-orders" routerLinkActive="active" ></i>
+
+        <span *ngIf="totalQuantity > 0"
+              class="absolute -top-2 -right-2 bg-red-600 text-white text-sm rounded-full h-5 w-5 flex items-center justify-center">
+          {{ totalQuantity }}
+        </span>
+      </div>
+
+
+
+      <button (click)="onLogout()"
+              class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none transition duration-300">
+        Logout
+      </button>
     </div>
-  </div>  
+  </div>
+</nav> -->
+
+
+<!-- yeh chl rh ai habasiudhiwudh -->
+<!-- <nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50 ">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+    <h1 class="logo text-[30px] font-bold text-yellow-500 !text-[30px]">Style</h1>
+
+
+    <div class="menu flex items-center gap-6">
+
+      <ul class="sidebar-nav space-y-4">
+        <li>
+          <a routerLink="/customer/customer-dashboard" routerLinkActive="active"
+            class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/customer/chats" routerLinkActive="active"
+            class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Chats
+          </a>
+        </li>
+      </ul>
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen"
+          class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          style="display: block; position: absolute; top: 40px; right: 0; background-color: white; color: black; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 200px;">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/my-profile"
+              routerLinkActive="active" style="padding: 10px; cursor: pointer;">
+              My Profile
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/reset-password"
+              routerLinkActive="active" style="padding: 10px; cursor: pointer;">
+              Reset Password
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-cart-shopping text-white text-xl cursor-pointer" routerLink="/customer/customer-orders"
+          routerLinkActive="active"></i>
+
+        <span *ngIf="totalQuantity > 0"
+          class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+          style="position: absolute; top: -8px; right: -8px; background-color: red; color: white; font-size: 10px; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+          {{ totalQuantity }}
+        </span>
+      </div>
+
+      <button (click)="onLogout()"
+        class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-yellow-300 transition duration-300"
+        style="background-color: #f39c12; color: black; padding: 10px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease;">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav> -->
+
+<!-- 
+recnet;ly -->
+<!-- <nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto  ">
+    
+    <div class="logo-container flex items-center">
+      <img src="assets/logo.png" alt="Logo" class="logo h-[90px] w-auto"> 
+    </div>
+    
+    <div class="menu flex items-center gap-6">
+      <ul class="sidebar-nav flex space-x-6"> 
+        <li class="flex items-center">
+          <i class="fa-solid fa-tachometer-alt text-white mr-2"></i> 
+          <a routerLink="/customer/customer-dashboard" routerLinkActive="active"
+            class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Dashboard
+          </a>
+        </li>
+        <li class="flex items-center">
+          <i class="fa-solid fa-comments text-white mr-2"></i> 
+          <a routerLink="/customer/chats" routerLinkActive="active"
+            class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Chats
+          </a>
+        </li>
+      </ul>
+
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen"
+          class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          style="display: block; position: absolute; top: 40px; right: 0; background-color: white; color: black; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 200px;">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li (click)="navigateToProfile()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              My Profile
+            </li>
+            <li (click)="navigateToResetPassword()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              Reset Password
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-cart-shopping text-white text-xl cursor-pointer" routerLink="/customer/customer-orders"
+          routerLinkActive="active"></i>
+
+        <span *ngIf="totalQuantity > 0"
+          class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          {{ totalQuantity }}
+        </span>
+      </div>
+
+      <button (click)="onLogout()"
+        class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-yellow-300 transition duration-300">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav> -->
+
+
+<nav class="w-full bg-[#2c2d31] shadow-md fixed top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-3 py-2">
+    <!-- Logo -->
+    <div class="font-bold text-gray-800">
+      <img src="assets/impS.png" alt="Logo" class="logo h-[70px] w-auto">
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="sm:hidden text-white text-2xl" (click)="toggleMenu()">
+      {{ isMobileMenuOpen ? '✖' : '☰' }}
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden sm:flex items-center gap-8 font-semibold text-[14px] text-white uppercase mb-0">
+      <li><a routerLink="/customer/customer-dashboard" class="text-[#35ad79] hover:text-[#004E89] transition">Dashboard</a></li>
+      <li><a routerLink="/customer/chats" class="text-white hover:text-[#004E89] transition">Chats</a></li>
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen"
+          class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          style="display: block; position: absolute; top: 40px; right: 0; background-color: white; color: black; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 200px;">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li (click)="navigateToProfile()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              My Profile
+            </li>
+            <li (click)="navigateToResetPassword()" class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              Reset Password
+            </li>
+          </ul>
+        </div>
+      </div>
+      <li class="relative">
+        <i class="fa-solid fa-cart-shopping text-white text-lg cursor-pointer" routerLink="/customer/customer-orders"></i>
+        <span *ngIf="totalQuantity > 0" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">{{ totalQuantity }}</span>
+      </li>
+      <li>
+        <button (click)="onLogout()" class="bg-[#35ad79] text-white py-2 px-4 rounded-lg hover:bg-[#00356b] transition">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="sm:hidden" [ngClass]="{'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}">
+    <ul class="flex flex-col items-center gap-4 py-2 bg-[#1a1b1e] shadow-sm">
+      <li><a routerLink="/customer/customer-dashboard" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Dashboard</a></li>
+      <li><a routerLink="/customer/chats" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Chats</a></li>
+      <li (click)="toggleDropdown()" class="text-white cursor-pointer">User Menu</li>
+      <li><a routerLink="/customer/customer-orders" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Orders</a></li>
+      <li>
+        <button (click)="onLogout()" class="bg-[#35ad79] text-white py-2 px-4 rounded hover:bg-[#00356b] transition">Logout</button>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+    <h1 class="logo text-[30px] font-bold text-yellow-500">Style</h1>
+
+    <div class="menu flex items-center gap-6">
+      <ul class="sidebar-nav flex gap-6 space-x-6 mb-0">
+        <li>
+          <a routerLink="/customer/customer-dashboard" routerLinkActive="active" class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/customer/chats" routerLinkActive="active" class="text-white block no-underline text-gray-800 hover:text-blue-600">
+            Chats
+          </a>
+        </li>
+      </ul>
+
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen" class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/my-profile" routerLinkActive="active">My Profile</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/reset-password" routerLinkActive="active">Reset Password</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-cart-shopping text-white text-xl cursor-pointer" routerLink="/customer/customer-orders" routerLinkActive="active"></i>
+        <span *ngIf="totalQuantity > 0" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          {{ totalQuantity }}
+        </span>
+      </div>
+
+      <button (click)="onLogout()" class="logout-btn bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-yellow-300 transition duration-300">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav> -->
+
+
+
+
+
+
+
+<!-- 
+<nav class="navbar-container bg-black text-white shadow-md px-6 w-full fixed top-0 z-50">
+  <div class="navbar-menu flex items-center justify-between max-w-screen-xl mx-auto">
+    <h1 class="logo text-[30px] font-bold text-yellow-500">Style</h1>
+
+    <div class="menu flex items-center gap-6">
+      <ul class="sidebar-nav flex gap-6 space-x-6 mb-0 hidden md:flex">
+        <li>
+          <a routerLink="/customer/customer-dashboard" routerLinkActive="active" class="text-white no-underline hover:text-blue-600">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/customer/chats" routerLinkActive="active" class="text-white no-underline hover:text-blue-600">
+            Chats
+          </a>
+        </li>
+      </ul>
+
+      
+      <div class="relative">
+        <i class="fa-solid fa-user text-white text-xl cursor-pointer" (click)="toggleDropdown()"></i>
+
+        <div *ngIf="isDropdownOpen" class="dropdown-menu bg-white text-black absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+          <ul class="py-2" style="padding: 0; margin: 0; list-style: none;">
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/my-profile" routerLinkActive="active">My Profile</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" routerLink="/customer/reset-password" routerLinkActive="active">Reset Password</li>
+          </ul>
+        </div>
+      </div>
+
+
+  
+      <div class="relative">
+        <i class="fa-solid fa-cart-shopping text-white text-xl cursor-pointer" routerLink="/customer/customer-orders"></i>
+        <span *ngIf="totalQuantity > 0" 
+              class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          {{ totalQuantity }}
+        </span>
+      </div>
+
+      <button (click)="onLogout()" 
+              class="bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 focus:ring focus:ring-yellow-300 transition duration-300">
+        Logout
+      </button>
+    </div>
+
+    <button class="md:hidden text-white" (click)="toggleMobileMenu()">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <div *ngIf="isMobileMenuOpen" class="md:hidden absolute top-16 left-0 w-full bg-black text-white p-4">
+    <ul class="space-y-4">
+      <li>
+        <a routerLink="/customer/customer-dashboard" routerLinkActive="active" class="block hover:text-blue-600">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/customer/chats" routerLinkActive="active" class="block hover:text-blue-600">Chats</a>
+      </li>
+      <li>
+        <a routerLink="/customer/my-profile" routerLinkActive="active" class="block hover:text-blue-600">My Profile</a>
+      </li>
+      <li>
+        <a routerLink="/customer/reset-password" routerLinkActive="active" class="block hover:text-blue-600">Reset Password</a>
+      </li>
+      <li>
+        <a (click)="onLogout()" class="block hover:text-blue-600 cursor-pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->

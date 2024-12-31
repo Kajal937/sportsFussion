@@ -1,10 +1,8 @@
-<!-- <mainnnn ></mainnnn> -->
-
-<app-header></app-header>
+<app-header *ngIf="showHeaderFooter"></app-header>
 <!-- Reusable header component -->
 
 <router-outlet></router-outlet>
 <!-- Displays child components (home, about, etc.) -->
- 
-<app-footer></app-footer>
+
+<app-footer *ngIf="showHeaderFooter"></app-footer>
 <!-- Reusable footer component -->

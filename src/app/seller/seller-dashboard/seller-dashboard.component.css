@@ -1,0 +1,53 @@
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  height: auto;
+}
+
+.table-auto {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-auto th, .table-auto td {
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.table-auto th {
+  background-color: #343a40;  
+  color: #fff;
+  font-weight: bold;
+}
+
+.table-auto td {
+  background-color: #f8f9fa;  
+}
+
+.table-auto tbody tr:nth-of-type(odd) {
+  background-color: #e9ecef;  
+}
+.table-auto {
+  border: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 1rem;
+  }
+
+  .table-auto th, .table-auto td {
+    padding: 0.5rem;
+  }
+
+  .overflow-x-auto {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+

@@ -1,7 +1,40 @@
-<div class="flex justify-between items-center bg-gray-800 text-white shadow-lg px-[38px] py-[4px]">
-    <h1 class="heading-admin font-bold">Admin Dashboard</h1>
-    <div class="flex items-center space-x-4">
-        <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700 transition duration-300">Notifications</button>
-        <button class="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition duration-300">Logout</button>
+<nav class="bg-white border-gray-200 fixed z-30 w-full z-50">
+  <div class="px-4 py-2 lg:px-5 lg:pl-3 bg-[#2c2d31]">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between w-full">
+        <div class="flex gap-3">
+          <!-- Hamburger and Cross Button -->
+          <button 
+            (click)="toggleSidebar()" 
+            class="text-white hover:text-black cursor-pointer px-2 py-0 hover:bg-[#35AD79] focus:bg-[#35AD79] rounded">
+            <!-- Hamburger Icon -->
+            <svg *ngIf="!isSidebarVisible" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <!-- Cross Icon -->
+            <svg *ngIf="isSidebarVisible" id="toggleSidebarMobileClose" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <!-- Logo -->
+          <a href="#" class="text-xl font-bold flex items-center">
+            <img src="assets/impS.png" class="h-[50px] mr-2" alt="Logo" /> <!-- Increased size -->
+          </a>
+        </div>
+        <!-- Logout Button and Home Link on Right -->
+        <div class="flex items-center gap-3">
+          <!-- Home Link -->
+          <a href="/home" class="text-[#35AD79] px-4 py-2 rounded-md hover:text-[#45d195] transition">Home</a>
+          <!-- Logout Button -->
+          <button 
+          
+            class="text-white bg-[#35AD79] px-4 py-2 rounded-md hover:bg-[#45d195] transition" routerLink="/home">
+            Logout
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</nav>
+
+

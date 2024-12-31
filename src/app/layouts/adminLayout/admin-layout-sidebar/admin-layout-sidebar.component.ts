@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-admin-layout-sidebar',
@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-layout-sidebar.component.css']
 })
 export class AdminLayoutSidebarComponent {
-  isDropdownOpen = false; // Track the dropdown's state
-
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen; // Toggle the dropdown state
-  }
+  @Input() isSidebarVisible: boolean = false; // Receive state from parent
 }
+

@@ -1,16 +1,85 @@
-<!-- Main Navbar -->
-<nav class="navbar-container">
-  <div class="navbar-menu">
-    <div class="logo">
-      <h1>Style</h1>
+<!-- <nav class="w-full bg-[#2c2d31] sm:bg-[#2c2d31] shadow-md fixed top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-3 py-1">
+    <div class="font-bold text-gray-800">
+      <img src="assets/impS.png" alt="Logo" class="logo h-[70px] w-auto">
     </div>
-    <div class="menu">
-      <a routerLink="/home">Home</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/contactus">Contact Us</a>
-      <a class="menu-btn" routerLink="/signup">Sign Up</a>
-      <a class="menu-btn" routerLink="/signIn">Sign In</a>
+
+    <button class="sm:hidden text-white" (click)="toggleMenu()">
+      {{ isMenuOpen ? '✖' : '☰' }}
+    </button>
+
+    <ul class="spcing hidden sm:flex items-center gap-8 font-semibold text-[14px] text-white mb-0 uppercase">
+      <li><a routerLink="/home" class="text-[#35ad79] hover:text-white transition no-underline">Home</a></li>
+      <li><a routerLink="/about" class="text-white hover:text-[#004E89] transition no-underline">About</a></li>
+      <li><a routerLink="/contactus" class="text-white hover:text-[#004E89] transition no-underline">Contact Us</a></li>
+
+      <li><a routerLink="/admin/user-mangement" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-[#00356b] transition no-underline">Admin</a></li>
+
+      <li><a routerLink="/signup" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-[#00356b] transition no-underline">Sign Up</a></li>
+      <li><a routerLink="/signIn" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-[#00356b] transition no-underline">Log In</a></li>
+    </ul>
+  </div>
+
+  <div class="sm:hidden" [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}">
+    <ul class="flex flex-col items-center gap-4 py-2 bg-[#1a1b1e] shadow-sm">
+      <li><a routerLink="/home" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/about" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">About</a></li>
+      <li><a routerLink="/contactus" class="text-white hover:text-[#004E89] transition" (click)="toggleMenu()">Contact Us</a></li>
+      <li><a routerLink="/signup" class="bg-[#35ad79] text-white px-4 py-2 rounded hover:bg-[#00356b] transition" (click)="toggleMenu()">Sign Up</a></li>
+      <li><a routerLink="/signIn" class="bg-[#35ad79] text-white px-4 py-2 rounded hover:bg-[#00356b] transition" (click)="toggleMenu()">Log In</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+
+
+<nav class="w-full bg-[#2c2d31] sm:bg-[#2c2d31] shadow-md fixed top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-3 py-1">
+    <!-- Logo -->
+    <div class="font-bold text-gray-800">
+      <img src="assets/impS.png" alt="Logo" class="logo h-[70px] w-auto">
     </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="sm:hidden text-white" (click)="toggleMenu()">
+      {{ isMenuOpen ? '✖' : '☰' }}
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="spcing hidden sm:flex items-center gap-8 font-semibold text-[14px] text-white mb-0 uppercase">
+      <li><a routerLink="/home" class="text-[#35ad79] hover:text-white transition no-underline">Home</a></li>
+      <li><a routerLink="/about" class="text-white hover:text-[#004E89] transition no-underline">About</a></li>
+      <li><a routerLink="/contactus" class="text-white hover:text-[#004E89] transition no-underline">Contact Us</a></li>
+
+      <!-- Show Admin Button Only for Admin Role -->
+      <li *ngIf="userRoleId === 1">
+        <a routerLink="/admin/user-mangement" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-green-800 transition no-underline">Admin</a>
+      </li>
+
+      <li><a routerLink="/signup" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-green-800 transition no-underline">Sign Up</a></li>
+      <li><a routerLink="/signIn" class="bg-[#35ad79] text-white p-[10px] rounded hover:bg-green-800 transition no-underline">Log In</a></li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="sm:hidden" [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}">
+    <ul class="flex flex-col items-center gap-4 py-2 bg-[#1a1b1e] shadow-sm">
+      <li><a routerLink="/home" class="text-white hover:text-green-800 transition" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/about" class="text-white hover:text-green-800 transition" (click)="toggleMenu()">About</a></li>
+      <li><a routerLink="/contactus" class="text-white hover:text-green-800 transition" (click)="toggleMenu()">Contact Us</a></li>
+
+      <!-- Show Admin Button Only for Admin Role -->
+      <li *ngIf="userRoleId === 1">
+        <a routerLink="/admin/user-mangement" class="bg-[#35ad79] text-white px-4 py-2 rounded hover:bg-green-800 transition" (click)="toggleMenu()">Admin</a>
+      </li>
+
+      <li><a routerLink="/signup" class="bg-[#35ad79] text-white px-4 py-2 rounded hover:bg-green-800 transition" (click)="toggleMenu()">Sign Up</a></li>
+      <li><a routerLink="/signIn" class="bg-[#35ad79] text-white px-4 py-2 rounded hover:bg-green-800 transition" (click)="toggleMenu()">Log In</a></li>
+    </ul>
   </div>
 </nav>
-<hr class="navbar-hr" />
+
+
+
+
+

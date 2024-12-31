@@ -1,5 +1,23 @@
-.heading-admin{
-    font-size: 20px;
-    margin: 0px;
-    padding: 0px;
-}
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #d1d5db;
+    padding: 16px;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50; 
+    background-color: white; 
+    padding: 10px 20px; 
+  }
+  
+  aside {
+    transition: transform 0.3s ease-in-out;
+    z-index: 40; 
+  }
+  
+ 
+  
