@@ -10,15 +10,11 @@ import { CustomerLayoutComponent } from './layouts/customerLayout/customerLayout
 import { HeaderComponent } from './layouts/outerLayout/header/header.component';
 import { FooterComponent } from './layouts/outerLayout/footer/footer.component';
 import { CustomerFooterComponent } from './layouts/customerLayout/customer-footer/customer-footer.component';
-import { FavouritesComponent } from './customer/favourites/favourites.component';
 import { SignInComponent } from './outer/signIn/signIn.component';
 import { SellerLayoutComponent } from './layouts/sellerLayout/sellerLayout.component';
 import { UserMangementComponent } from './admin/user-mangement/user-mangement.component';
-import { SettingsComponent } from './customer/settings/settings.component';
 import { ChatsComponent } from './customer/chats/chats.component';
 import { AdminLayoutSidebarComponent } from './layouts/adminLayout/admin-layout-sidebar/admin-layout-sidebar.component';
-import { SellerInfoComponent } from './seller/seller-info/seller-info.component';
-import { AddressComponent } from './customer/address/address.component';
 import { AdminLoginComponent } from './outer/admin-login/admin-login.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
@@ -62,8 +58,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'customer-dashboard', pathMatch: 'full' }, 
       { path: 'customer-dashboard', component: CustomerDashboardComponent },
       { path: 'customer-orders', component: CustomerOrdersComponent },
-      { path: 'address', component: AddressComponent },
-      { path: 'settings', component: SettingsComponent },
       { path: 'chats', component: ChatsComponent },
       { path: 'my-profile', component: MyProfileComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
@@ -76,7 +70,6 @@ const routes: Routes = [
     component: SellerLayoutComponent,
     children: [
       { path: 'seller-dashboard', component: SellerDashboardComponent }, 
-      { path: 'seller-info', component: SellerInfoComponent },
       { path: 'seller-profile', component: SellerProfileComponent },
       { path: 'seller-password', component: SellerPasswordComponent },
       { path: '', redirectTo: 'seller-dashboard', pathMatch: 'full' }, 
